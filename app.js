@@ -4,8 +4,9 @@ var fs = require('fs');
 var util = require('util');
 var app = express();
 var http =  require('http');
-var server = http.createServer(app);
-var io = require('socket.io').listen(server)
+var port = 3000
+//var server = http.createServer(app);
+var io = require('socket.io').listen(app.listen(port));
 
 app.set('views', __dirname + '/templates');
 app.set('view engine', "jade");
@@ -33,8 +34,8 @@ app.get('/hello', function(req, res){
   res.end(body);
 });
 
-server.listen(3000);
-console.log('Listening on port 3000');
+//server.listen(port);
+console.log('Listening on port ' + port);
 
 
 io.sockets.on('connection', function(socket) {

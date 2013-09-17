@@ -1,0 +1,31 @@
+!!! 5
+html(lang="en")
+    head
+        meta(http-equiv="X-UA-Compatible" content="IE=edge", name="viewport" content="width=device-width", charset="UTF-8")
+        title="Orwell"
+        link(rel='stylesheet', href='css/foundation.css')
+        script(id="sap-ui" src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js" data-sap-ui-theme="sap_goldreflection" data-sap-ui-libs="sap.ui.commons")
+        script(src="http://localhost:3000/socket.io/socket.io.js")
+        script(src="js/highcharts.js")
+        script(src="js/ui.js")
+        script(src="js/myjs.js")
+        script(src="js/graphs.js")
+    body.sapUiBody
+        div.row
+            ul.side-nav
+                li.active
+                    a(href="#").
+                        Gráficas
+                li
+                    a(href='/history').
+                        Histórico
+                li
+                    a(href='/admin').
+                        Administrador
+            div.large-12.columns
+                div.panel
+                    div#container
+            div.large-4.columns
+                div.panel
+                    div#twits(style="height: 400; overflow: scroll;")
+                        ul.tweets(style="height: 400; overflow: scroll;")

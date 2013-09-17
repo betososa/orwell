@@ -24,7 +24,9 @@ app.get("/", function(req, res){
 	res.render("real");
 });
 
-
+app.get('/graphs', function(req, res) {
+	res.render("graphs");
+})
 
 app.get('/hello', function(req, res){
   var body = 'Hello World';

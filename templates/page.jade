@@ -1,0 +1,58 @@
+- !!! 5
+- html(lang="en")
+- 	head
+- 		title= "Chat"
+- 		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+- 		script(src='/chat.js')
+- 		script(src='/socket.io/socket.io.js')
+- 	body
+- 		#content(style='width: 500px; height: 300px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll;')
+- 		.controls
+- 			| Name: 
+- 			input#name(style='width:350px;')
+- 			br
+- 			input#field(style='width:350px;')
+- 			input#send(type='button', value='send')
+
+
+ul#books
+  li
+    a(href="#book-a") Book A
+  li
+    a(href="#book-b") Book B
+
+    
+// <script type="text/javascript">
+
+//     $(document).ready(function() {
+//         var $container = $('ul.tweets'),
+//             socket = io.connect('http://localhost:3000'),
+//             template = $('#tweetTemplate');
+            
+ 
+//         socket.on('twitter', function(data) {
+//             console.debug(data);
+//             $('.tweets').prepend('<li>' + data.text + '</li>');
+//             //$container.append(template.render(data));
+//         });
+//     });
+
+
+
+// </script>
+
+// </body>
+// </html>
+
+
+
+// <html>
+// <head>
+//     <title></title>
+//     <script src="socket.io/socket.io.js"></script>
+//     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+// </head>
+// <body>
+// <div id="local-tweet-container">
+//     <ul class="tweets" style="height: 400; overflow: scroll;"></ul>
+// </div>

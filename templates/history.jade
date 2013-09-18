@@ -10,38 +10,40 @@ html(lang="en")
         script(src="js/history.js")
         script(src="https://maps.googleapis.com/maps/api/js?sensor=true")
         script(src="js/maps.js")
-    body.sapUiBody
-        div.container.top-bar.home-border.hide-for-small
-            div.attached
-                div.name(onclick="void(0);")
-                    span
-                        a(href="http://www.google.com").
-                            foundation
-                ul.right
-                    li.show-for-small
-                        a(href="http://www.google.com").
-                            foundation
-                    li
-                        a(href="http://www.google.com").
-                            foundation
-                    li
-                        a(href="http://www.google.com").
-                            foundation
+    body
         div.row
-            div.large-6.columns
+            div.large-3.columns
+                h1
+                    img(src="/logo.png")
+            div.large-9.columns
+                ul.inline-list.right
+                    li
+                        a(href="/history").
+                            Histórico 
+                ul.inline-list.right
+                    li
+                        a(href="/graphs").
+                            Gráficas 
+                ul.inline-list.right
+                    li
+                        a(href="/admin").
+                            Administración
+        div.row
+            div.large-12.columns
                 div.panel
                     h2 Horas
                     div#hours
-            div.large-6.columns
+        div.row
+            div.large-12.columns
                 div.panel
                     h2 Usuarios
                     div#twiters
         div.row
-            div.large-6.columns
+            div.large-12.columns
                 div.panel
                     h2 Sentimiento
                     div#history
-            div.large-6.columns
+            div.large-12.columns
                 div.panel
                     h2 Mapa
                     div#maps(style="margin:0;padding:0;height:350px")

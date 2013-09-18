@@ -10,28 +10,30 @@ html(lang="en")
         script(src="js/ui.js")
         script(src="js/myjs.js")
         script(src="js/graphs.js")
-    body.sapUiBody
-        div.container.top-bar.home-border.hide-for-small
-            div.attached
-                div.name(onclick="void(0);")
-                    span
-                        a(href="http://www.google.com").
-                            foundation
-                ul.right
-                    li.show-for-small
-                        a(href="http://www.google.com").
-                            foundation
+    body
+        div.row
+            div.large-3.columns
+                h1
+                    img(src="/logo.png")
+            div.large-9.columns
+                ul.inline-list.right
                     li
-                        a(href="http://www.google.com").
-                            foundation
+                        a(href="/history").
+                            Histórico 
+                ul.inline-list.right
                     li
-                        a(href="http://www.google.com").
-                            foundation
+                        a(href="/graphs").
+                            Gráficas 
+                ul.inline-list.right
+                    li
+                        a(href="/admin").
+                            Administración
         div.row
             div.large-12.columns
                 div.panel
                     div#container
-            div.large-4.columns
+        div.row
+            div.large-12.columns
                 div.panel
                     div#twits
                         ul.tweets(style="height: 400; overflow: scroll;")

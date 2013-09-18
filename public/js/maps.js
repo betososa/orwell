@@ -5,7 +5,7 @@ var markersArray = [];
 function initialize() {
     var myLatlng = new google.maps.LatLng(19.350449,-99.144291);
     var mapOptions = {
-        zoom: 10,
+        zoom: 1,
         center: myLatlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
@@ -20,13 +20,12 @@ function initialize() {
         username: 'carlos',
         password: 'QAZwsx123',
         success: function (data, status, req) {
-            console.log('mapaaaa');
             for (i in data.d.results) {
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(data.d.results[i].LATITUD, data.d.results[i].LONGITUD),
-                    map: map,
-                    title: 'test'
+                    map: map
                 });
+                console.dir(marker);
             }
         },
         error: function (data, status, req) {

@@ -28,6 +28,10 @@ app.get('/graphs', function(req, res) {
 	res.render("graphs");
 })
 
+app.get('/history', function( req, res ) {
+	res.render("history");
+})
+
 app.get('/hello', function(req, res){
   var body = 'Hello World';
   console.log('entering hello World');

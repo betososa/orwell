@@ -22,6 +22,8 @@ function initialize() {
     });
 }
 
+
+
 function placeMarker(location) {
     var marker = new google.maps.Marker({
         position: location,

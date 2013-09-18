@@ -5,11 +5,11 @@ html(lang="en")
         title="Orwell"
         link(rel='stylesheet', href='css/foundation.css')
         script(id="sap-ui" src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js" data-sap-ui-theme="sap_goldreflection" data-sap-ui-libs="sap.ui.commons")
-        script(src="http://localhost:3000/socket.io/socket.io.js")
         script(src="js/highcharts.js")
         script(src="js/ui.js")
-        script(src="js/myjs.js")
-        script(src="js/graphs.js")
+        script(src="js/history.js")
+        script(src="https://maps.googleapis.com/maps/api/js?sensor=true")
+        script(src="js/maps.js")
     body.sapUiBody
         div.container.top-bar.home-border.hide-for-small
             div.attached
@@ -28,10 +28,20 @@ html(lang="en")
                         a(href="http://www.google.com").
                             foundation
         div.row
-            div.large-12.columns
+            div.large-6.columns
                 div.panel
-                    div#container
-            div.large-4.columns
+                    h2 Horas
+                    div#hours
+            div.large-6.columns
                 div.panel
-                    div#twits
-                        ul.tweets(style="height: 400; overflow: scroll;")
+                    h2 Usuarios
+                    div#twiters
+        div.row
+            div.large-6.columns
+                div.panel
+                    h2 Sentimiento
+                    div#history
+            div.large-6.columns
+                div.panel
+                    h2 Mapa
+                    div#maps(style="margin:0;padding:0;height:350px")

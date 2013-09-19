@@ -8,6 +8,9 @@ function pie(obj1) {
         title: {
             text: obj1.title
         },
+       tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
         credits: {
             position: {
                 align: 'left',
@@ -18,7 +21,13 @@ function pie(obj1) {
         plotOptions: {
             pie:{
                 slicedOffset: 20,
-                allowPointSelect: true
+                allowPointSelect: true,
+                dataLabels: {
+                    enabled: true,
+                    color: '#000000',
+                    connectorColor: '#000000',
+                    format: '<b>{point.name}</b>: {point.y}'
+                }
             }
         },
         series: [{

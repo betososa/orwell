@@ -25,7 +25,6 @@ function initialize() {
                     position: new google.maps.LatLng(data.d.results[i].LATITUD, data.d.results[i].LONGITUD),
                     map: map
                 });
-                console.dir(marker);
             }
         },
         error: function (data, status, req) {

@@ -14,7 +14,7 @@ html(lang="en")
         div.row
             div.large-3.columns
                 h1
-                    img(src="")
+                    img(src="/logo.png")
             div.large-9.columns
                 ul.inline-list.right
                     li
@@ -29,6 +29,18 @@ html(lang="en")
                         a(href="/admin").
                             Administración
         div.row
+            //- div.large-12.columns
+            div.large-4.columns
+                p Fecha y hora de inicio
+                input#dateStart(type="date")
+                input#timeStart(type="time")
+            div.large-4.columns
+                p Fecha y hora de fin
+                input#dateEnd(type="date")
+                input#timeEnd(type="time")
+            div.large-3.columns
+                a#filter.small.button.
+                    Filtrar
             div.large-12.columns
                 div.panel
                     h2 Horas

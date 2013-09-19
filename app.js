@@ -25,6 +25,7 @@ app.get("/", function(req, res){
     res.render("real");
 });
 
+
 app.get('/graphs', function(req, res) {
     res.render("graphs");
 })

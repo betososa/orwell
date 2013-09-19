@@ -54,6 +54,12 @@ $(document).ready(function(){
         });
     };
 
+    function test(){
+        busqueda.prueba(function(response){
+            alert(response);
+        })
+    }
+
     $( '#lanzar' ).click(function() {
         lanza();
     })

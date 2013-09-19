@@ -2,6 +2,8 @@ $(document).ready(function(){
 
     var testChart = new Highcharts.Chart(pie({renderTo:'container',title:'Sentiment', data:[[ 'NN', 0 ]]}));
 
+    console.dir(testChart);
+
     setInterval(function() {
         $.ajax({
             url: 'http://187.162.45.69:8000/services/sentimentServices/sentiment.xsodata/SENTIMENT/?$format=json',

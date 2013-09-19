@@ -199,6 +199,7 @@ $(document).ready(function() {
         },
         error: function (data, status, req) {
             alert("error");
+            console.dir(data);
         },
     });
 });

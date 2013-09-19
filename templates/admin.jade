@@ -5,11 +5,10 @@ html(lang="en")
         title="Orwell"
         link(rel='stylesheet', href='css/foundation.css')
         script(id="sap-ui" src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js" data-sap-ui-theme="sap_goldreflection" data-sap-ui-libs="sap.ui.commons")
-        script(src="js/highcharts.js")
-        script(src="js/ui.js")
-        script(src="js/history.js")
-        script(src="https://maps.googleapis.com/maps/api/js?sensor=true")
-        script(src="js/maps.js")
+        script(src="http://localhost:3000/socket.io/socket.io.js")
+        //- script(src="https://maps.googleapis.com/maps/api/js?sensor=true")
+        script(src="http://187.162.45.69:8800/pico/client.js")
+        script(src="js/admin.js")
     body
         div.row
             div.large-3.columns
@@ -28,22 +27,19 @@ html(lang="en")
                     li
                         a(href="/admin").
                             Administración
+        p#message
+        input#textTrack(type="text")
+        button#lanzar(type="button").
+            Lanzar
+        button#detener(type="button").
+            Detener
         div.row
             div.large-12.columns
                 div.panel
-                    h2 Horas
-                    div#hours
-        div.row
-            div.large-12.columns
-                div.panel
-                    h2 Usuarios
-                    div#twiters
-        div.row
-            div.large-12.columns
-                div.panel
-                    h2 Sentimiento
-                    div#history
-            div.large-12.columns
-                div.panel
-                    h2 Mapa
-                    div#maps(style="margin:0;padding:0;height:350px")
+                    div#local-tweet-container
+                        ul.tweets(style="height: 400; overflow: scroll;")
+        //- div.row
+        //-     div.large-12.columns
+        //-     div.panel
+        //-         div#twits
+        //-             ul.tweets(style="height: 400; overflow: scroll;")

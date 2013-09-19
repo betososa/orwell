@@ -12,6 +12,7 @@ app.set('views', __dirname + '/templates');
 app.set('view engine', "jade");
 app.engine('jade', require('jade').__express);
 app.use(express.static(__dirname + '/public'));
+app.use(express.bodyParser());
 
 var twit = new twitter({
   consumer_key: 'GPzRqYxNpHqa0tI2zv4KoQ',
@@ -21,15 +22,19 @@ var twit = new twitter({
 });
 
 app.get("/", function(req, res){
-	res.render("real");
+    res.render("real");
 });
 
 app.get('/graphs', function(req, res) {
-	res.render("graphs");
+    res.render("graphs");
 })
 
 app.get('/history', function( req, res ) {
-	res.render("history");
+    res.render("history");
+})
+
+app.get('/admin', function( req, res ) {
+    res.render("admin");
 })
 
 app.get('/hello', function(req, res){
@@ -44,11 +49,55 @@ app.get('/hello', function(req, res){
 console.log('Listening on port ' + port);
 
 
-io.sockets.on('connection', function(socket) {
-  twit.stream('statuses/filter', {'track':'perro'},
-    function(stream) {
-      stream.on('data',function(data){
-        socket.emit('twitter',data);
+// io.sockets.on('connection', function(socket) {
+//   twit.stream('statuses/filter', {'track':'perro'},
+//     function(stream) {
+//       stream.on('data',function(data){
+//         socket.emit('twitter',data);
+//       });
+//     });
+// });
+
+var TwitWords = [];
+
+
+function track(array) {
+  io.sockets.on('connection', function(socket) {
+    twit.stream('statuses/filter', {'track':array},
+      function(stream) {
+        stream.on('data',function(data){
+          socket.emit('twitter',data);
+        });
       });
-    });
+  });
+}
+
+function AddTwitWord(word){
+  if(TwitWords.indexOf(word)==-1){
+    TwitWords = [];
+    TwitWords.push(word);
+    track(TwitWords);
+  }
+}
+
+function RemoveTwitWord(word){
+  if(TwitWords.indexOf(word)!=-1){
+    TwitWords.splice(TwitWords.indexOf(word),1);
+    TrackWords(TwitWords);
+  }
+}
+
+//track(['lluvia']);
+
+//track(['gato','perro'], 'twitter');
+
+app.post('/track', function(req, res) {
+    console.log(req.body.keyword);
+    AddTwitWord(req.body.keyword.split(','));
+    res.send('OK');
 });
+
+
+
+
+

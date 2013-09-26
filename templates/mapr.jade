@@ -6,10 +6,9 @@ html(lang="en")
         link(rel='stylesheet', href='css/foundation.css')
         script(id="sap-ui" src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js" data-sap-ui-theme="sap_goldreflection" data-sap-ui-libs="sap.ui.commons")
         script(src="http://localhost:3000/socket.io/socket.io.js")
-        script(src="js/highcharts.js")
-        script(src="js/ui.js")
-        script(src="js/myjs.js")
-        script(src="js/graphs.js")
+        script(src="https://maps.googleapis.com/maps/api/js?sensor=true")
+        script(src="js/mapr.js")
+        //- script(src="js/maptw.js")
     body
         div.row
             div.large-3.columns
@@ -32,23 +31,17 @@ html(lang="en")
                     li
                         a(href="/mkt").
                             Pauta
-        div.row
-            div.large-12.columns
-                div.panel
-                    div#container
-        div.six.colums
-            h4 Live Stream
-            div.row#fila
-                div.two.phone-one.colums
-                    a(href='#')
-                        img(src="http://placehold.it/80x100")
-                div.ten.phone-three.colums
-                    h5.right
-                    h4
-                        a(href='#').
-                    p
-        div.row
-            div.large-12.columns
-                div.panel
-                    div#twits
-                        ul.tweets(style="height: 400; overflow: scroll;")
+                ul.inline-list.right
+                    li
+                        a(href="/map").
+                            Mapa
+            div.row
+                div.large-12.columns
+                    div.panel
+                        h2 Mapa
+                        div#maps(style="margin:0;padding:0;height:350px")
+                div.large-12.columns
+                    div.panel
+                        div.tweets
+
+

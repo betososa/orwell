@@ -32,7 +32,7 @@ $(document).ready(function() {
             });
         },
         error: function(data, status, req) {
-        	alert(error);
+        	alert('error');
         }
 	})
 

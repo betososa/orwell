@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var testChart = new Highcharts.Chart(pie({renderTo:'container',title:'Sentiment', data:[[ 'NN', 0 ]]}));
+    var testChart = new Highcharts.Chart(pie({renderTo:'container',title:'Sentiment', data:[[ '', 0 ]]}));
 
     console.dir(testChart);
 

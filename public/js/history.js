@@ -3,7 +3,7 @@ $(document).ready(function() {
     var pieChart = new Highcharts.Chart(pie({renderTo:'history',title:'Sentiment', data:[[ 'NN', 0 ]]}));
 
     $.ajax({
-        url: 'http://187.162.45.69:8000/services/sentimentServices/sentiment.xsodata/SENTIMENT/?$format=json',
+        url: 'http://187.162.45.69:8000/services/sentimentServices/sentiment.xsodata/SENTIMENT/?$format=jsonp',
         type: "GET",
         username: 'carlos',
         password: 'QAZwsx123',
@@ -24,7 +24,7 @@ $(document).ready(function() {
 
 
     $.ajax({
-        url: 'http://187.162.45.69:8000/services/sentimentServices/users.xsodata/USERS/?$format=json&$orderby=TOTAL%20desc&$top=10',
+        url: 'http://187.162.45.69:8000/services/sentimentServices/users.xsodata/USERS/?$format=jsonp&$orderby=TOTAL%20desc&$top=10',
         type: "GET",
         username: 'carlos',
         password: 'QAZwsx123',
@@ -90,7 +90,7 @@ $(document).ready(function() {
 
 
     $.ajax({
-        url: 'http://187.162.45.69:8000/services/sentimentServices/fechas.xsodata/FECHAS/?$format=json',
+        url: 'http://187.162.45.69:8000/services/sentimentServices/fechas.xsodata/FECHAS/?$format=jsonp',
         type: "GET",
         username: 'carlos',
         password: 'QAZwsx123',

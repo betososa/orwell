@@ -28,19 +28,23 @@ html(lang="en")
                     li
                         a(href="/admin").
                             Administración
+                ul.inline-list.right
+                    li
+                        a(href="/mkt").
+                            Pauta
         div.row
             //- div.large-12.columns
-            div.large-4.columns
-                p Fecha y hora de inicio
-                input#dateStart(type="date")
-                input#timeStart(type="time")
-            div.large-4.columns
-                p Fecha y hora de fin
-                input#dateEnd(type="date")
-                input#timeEnd(type="time")
-            div.large-3.columns
-                a#filter.small.button.
-                    Filtrar
+            //- div.large-4.columns
+            //-     p Fecha y hora de inicio
+            //-     input#dateStart(type="date")
+            //-     input#timeStart(type="time")
+            //- div.large-4.columns
+            //-     p Fecha y hora de fin
+            //-     input#dateEnd(type="date")
+            //-     input#timeEnd(type="time")
+            //- div.large-3.columns
+            //-     a#filter.small.button.
+            //-         Filtrar
             div.large-12.columns
                 div.panel
                     h2 Horas
@@ -59,3 +63,7 @@ html(lang="en")
                 div.panel
                     h2 Mapa
                     div#maps(style="margin:0;padding:0;height:350px")
+            div.large-12.columns
+                div.panel
+                    h2 Mapa
+                    div#heatMap(style="margin:0;padding:0;height:350px")

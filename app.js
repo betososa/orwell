@@ -48,6 +48,10 @@ app.get('/map', function( require, res ) {
   res.render("mapr");
 })
 
+app.get('/heatmap', function( require, res ) {
+  res.render("heatmap");
+})
+
 app.get('/hello', function(req, res){
   var body = 'Hello World';
   console.log('entering hello World');
@@ -60,14 +64,14 @@ app.get('/hello', function(req, res){
 console.log('Listening on port ' + port);
 
 
-io.sockets.on('connection', function(socket) {
-  twit.stream('statuses/filter', {'track':'coarso'},
-    function(stream) {
-      stream.on('data',function(data){
-        socket.emit('twitter',data);
-      });
-    });
-});
+// io.sockets.on('connection', function(socket) {
+//   twit.stream('statuses/filter', {'track':'perro'},
+//     function(stream) {
+//       stream.on('data',function(data){
+//         socket.emit('twitter',data);
+//       });
+//     });
+// });
 
 var TwitWords = [];
 

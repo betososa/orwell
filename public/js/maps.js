@@ -15,7 +15,7 @@ function initialize() {
 }
 
     $.ajax({
-        url: 'http://187.162.45.69:8000/services/sentimentServices/coord.xsodata/COORD/?$format=jsonp',
+        url: 'http://187.162.45.69:8000/services/sentimentServices/coord.xsodata/COORD/?$format=json',
         type: "GET",
         username: 'carlos',
         password: 'QAZwsx123',

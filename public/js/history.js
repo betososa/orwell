@@ -3,7 +3,7 @@ $(document).ready(function() {
     var pieChart = new Highcharts.Chart(pie({renderTo:'history',title:'Sentiment', data:[[ 'NN', 0 ]]}));
 
     $.ajax({
-        url: 'http://187.162.45.69:8000/services/sentimentServices/sentiment.xsodata/SENTIMENT/?$format=jsonp',
+        url: 'http://187.162.45.69:8000/services/sentimentServices/sentiment.xsodata/SENTIMENT/?$format=json',
         type: "GET",
         username: 'carlos',
         password: 'QAZwsx123',
@@ -24,7 +24,7 @@ $(document).ready(function() {
 
 
     $.ajax({
-        url: 'http://187.162.45.69:8000/services/sentimentServices/users.xsodata/USERS/?$format=jsonp&$orderby=TOTAL%20desc&$top=10',
+        url: 'http://187.162.45.69:8000/services/sentimentServices/users.xsodata/USERS/?$format=json&$orderby=TOTAL%20desc&$top=10',
         type: "GET",
         username: 'carlos',
         password: 'QAZwsx123',
@@ -90,7 +90,7 @@ $(document).ready(function() {
 
 
     $.ajax({
-        url: 'http://187.162.45.69:8000/services/sentimentServices/fechas.xsodata/FECHAS/?$format=jsonp',
+        url: 'http://187.162.45.69:8000/services/sentimentServices/fechas.xsodata/FECHAS/?$format=json',
         type: "GET",
         username: 'carlos',
         password: 'QAZwsx123',
@@ -106,7 +106,6 @@ $(document).ready(function() {
                 inner.push(parseInt(data.d.results[i].TOTAL));
                 timeSeries.push(inner);
             }
-            console.log(timeSeries);
             var chartTwitsPHour = new Highcharts.Chart({
                 chart: {
                     renderTo: 'hours',

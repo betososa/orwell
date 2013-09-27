@@ -1,11 +1,26 @@
-$(document).ready(function() {
-	var $container = $('ul.tweets'),
-	socket = io.connect('http://localhost:3000/'),
-	// socket = io.connect('http://192.241.238.64:3000/'),
-	template = $('#tweetTemplate');          
-	socket.on('twitter', function(data) {
-	console.debug(data);
-		$('.tweets').prepend('<li>' + data.text + '</li>');
-		//$container.append(template.render(data));
-	});
-});
+	function initialize(lat, lng){
+		var latlng = new google.maps.LatLng(lat, lng);
+		var mapSettings = {
+			center: latlng,
+			zoom: 15,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		map = new google.maps.Map($('#mapa').get(0), mapSettings);
+
+		var marker = new google.maps.Marker({
+			position: latlng,
+			map: map,
+			draggable: true,
+			title: 'DragMe!'
+		});
+
+		google.maps.event.addListener(marker, 'position_changed', function(){
+			getMarkerCoords(marker);
+		});
+
+		function getMarkerCoords(marker){
+			var markerCoords = marker.getPosition();
+			$('#id_lat').val(markerCoords.lat());
+			$('#id_lng').val(markerCoords.lng());
+		}
+	}

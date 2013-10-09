@@ -11,27 +11,40 @@ html(lang="en")
         script(src="js/myjs.js")
         script(src="js/graphs.js")
     body
-        div.row
-            div.large-3.columns
-                h1
-                    img(src="/logo.png")
-            div.large-9.columns
-                ul.inline-list.right
-                    li
-                        a(href="/history").
-                            Histórico 
-                ul.inline-list.right
-                    li
-                        a(href="/graphs").
-                            Gráficas 
-                ul.inline-list.right
-                    li
-                        a(href="/admin").
-                            Administración
-                ul.inline-list.right
-                    li
-                        a(href="/mkt").
-                            Pauta
+        nav.top-bar
+            ul.title-area
+                li.name
+                  h1
+                    a(href='/graphs')
+                        img(src="/blackLogo.png")
+                li.toggle-topbar.menu-icon
+                  a(href='#')
+                    span Menu
+              section.top-bar-section
+                ul.left
+                  li.divider
+                  li.active
+                    a(href='/graphs') Track
+                  li.divider
+                  li.has-dropdown
+                    a(href='#') Gráficas
+                    ul.dropdown
+                      li
+                        a(href='#') Sentimiento
+                      li
+                        a(href='#') Twits por hora
+                      li
+                        a(href='#') Mapa de Twits
+                      li
+                        a(href='#') Mapa de Calor
+                  li.divider
+                  li.has-dropdown
+                    a(href='#') Administración
+                    ul.dropdown
+                      li
+                        a(href='#') Campañas
+                      li
+                        a(href='#') Pauta
         div.row
             div.large-12.columns
                 div.panel
@@ -52,3 +65,10 @@ html(lang="en")
                 div.panel
                     div#twits
                         ul.tweets(style="height: 400; overflow: scroll;")
+        script(type='text/javascript').
+            document.write('<script src=/js/vendor/'
+            + ('__proto__' in {} ? 'zepto' : 'jquery')
+            + '.js><\/script>');
+        script(src='js/foundation.min.js')
+        script(type='text/javascript').
+          $(document).foundation();

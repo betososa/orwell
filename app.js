@@ -95,22 +95,32 @@ function AddTwitWord(word){
   }
 }
 
-function RemoveTwitWord(word){
-  if(TwitWords.indexOf(word)!=-1){
-    TwitWords.splice(TwitWords.indexOf(word),1);
-    TrackWords(TwitWords);
-  }
+// function RemoveTwitWord(word){
+//   if(TwitWords.indexOf(word)!=-1){
+//     TwitWords.splice(TwitWords.indexOf(word),1);
+//     TrackWords(TwitWords);
+//   }
+// }
+
+function RemoveTwitWord(){
+    TwitWords.length = 0;
 }
 
 //track(['lluvia']);
 
-//track(['gato','perro'], 'twitter');
+track(['gato','perro'], 'twitter');
 
 app.post('/track', function(req, res) {
     console.log(req.body.keyword);
     AddTwitWord(req.body.keyword.split(','));
     res.send('OK');
 });
+
+
+app.post('/stop', function(req, res) {
+  RemoveTwitWord();
+  res.send('OK');
+})
 
 
 
@@ -129,6 +139,67 @@ app.post('/pauta', function(req, res) {
     res.write("OK");
     res.end();
 })
+
+
+app.get('/api/sentiment/:campaign', function(req, res) {
+    var data = '';
+    http.get("http://carlos:QAZwsx123@187.162.45.69:8000/services/servicesHANA/services.xsodata/sentiment/?$format=json&$filter=ID_CAMP eq " + req.params.campaign, function(http_res) {
+        http_res.on('data', function(chunk){
+            data += chunk;
+        });
+        http_res.on('end', function() {
+            res.writeHead(200, {"Content-Type": "application/json",'Content-Length': Buffer.byteLength(data)});
+            res.write(data);
+            res.end();
+        });
+    });
+});
+    // http.get("http://carlos:QAZwsx123@187.162.45.69:8000/services/servicesHANA/services.xsodata/sentiment/?$format=json&$filter=ID_CAMP eq " + req.params.campaign, function(resp) {
+    //     console.log("Got response: " + resp.statusCode);
+    //     resp.on("data", function(chunk) {
+    //         // res.writeHead(200, {"Content-Type": "application/json",'Content-Length': Buffer.byteLength(respuesta)});
+    //         // respuesta += chunk;
+    //         res.json(chunk);
+    //     });
+    // }).on('error', function(e) {
+    //     console.log("error: " + e.message);
+    // });
+    // // console.log("BODY: " + respuesta);
+    // // res.write(respuesta)
+    // // res.end();
+
+// res.writeHead(200, {
+//     'Content-Type': 'application/json',
+//     'Content-Length': Buffer.byteLength(write)
+// });
+
+// function random(response) {
+//   console.log("Request handler 'random was called.");
+//   response.writeHead(200, {"Content-Type": "application/json"});
+//   var otherArray = ["item1", "item2"];
+//   var otherObject = { item1: "item1val", item2: "item2val" };
+//   response.write(
+//     JSON.stringify({ 
+//       anObject: otherObject, 
+//       anArray: otherArray, 
+//       another: "item",
+//     })
+//   );
+//   response.end();
+// }
+
+
+// http://187.162.45.69:8000/services/sentimentServices/track.xsodata/TRACK/?$format=json
+// http://192.168.15.12:8000/services/servicesHANA/nombre.xsjs?nombre=Cesar&id=4
+// http.get("http://SYSTEM:manager@192.168.15.12:8000/services/servicesHANA/nombre.xsjs?nombre=Richard&id=5", function(res) {
+//   console.log("Got response: " + res.statusCode);
+
+//   res.on("data", function(chunk) {
+//     console.log("BODY: " + chunk);
+//   });
+// }).on('error', function(e) {
+//   console.log("Got error: " + e.message);
+// });
 
 function programTwit(twit, yy, mm, dd, hh, min, ss, mms) {
     console.log(' Entering programTwit' );
@@ -174,20 +245,34 @@ function updateStatus(status) {
     })
 }
 
-app.get('/cronTest', function(req, res) {
-    var cronJob = require('cron').CronJob;
-    new cronJob('* * * * * *', function(){
-        console.log('You will see this message every second');
-    }, null, true);
-    res.writeHead(200, {"Content-Type": "text/plain"});
-    res.write("OK");
-    res.end();
-})
-
 app.get('/update', function(req, res) {
     updateStatus('test update');
     res.writeHead(200, {"Content-Type": "text/plain"});
     res.write("OK");
     res.end();
 });
+
+
+app.get('/test', function(req, res) {
+    res.render("test");
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

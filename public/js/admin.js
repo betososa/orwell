@@ -52,6 +52,7 @@ $(document).ready(function(){
             document.getElementById('message').innerHTML = "Se detuvo la búsqueda."
             console.log(response);
         });
+        socket.disconnect();
     };
 
     function test(){

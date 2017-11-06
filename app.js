@@ -15,10 +15,10 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
 
 var twit = new twitter({
-  consumer_key: 'nvEzbfqkIn3eP4HsOKlqA',
-  consumer_secret: 'wXREklIO6Q4NQnn4ba7nEoMQ07bFnQ7MvFavU5OCk',
-  access_token_key: '111464277-fqi8reyQJ1yfihm3xGhg6ZrzpjM2P3E78SBnt7JI',
-  access_token_secret:'KPhXa9EfLJYZkgs2NnaZanXq4FRt6oXdvmMtagNX2U'
+  consumer_key: '',
+  consumer_secret: '',
+  access_token_key: '',
+  access_token_secret:''
 });
 
 var cronJob = require('cron').CronJob;
@@ -154,52 +154,6 @@ app.get('/api/sentiment/:campaign', function(req, res) {
         });
     });
 });
-    // http.get("http://carlos:QAZwsx123@187.162.45.69:8000/services/servicesHANA/services.xsodata/sentiment/?$format=json&$filter=ID_CAMP eq " + req.params.campaign, function(resp) {
-    //     console.log("Got response: " + resp.statusCode);
-    //     resp.on("data", function(chunk) {
-    //         // res.writeHead(200, {"Content-Type": "application/json",'Content-Length': Buffer.byteLength(respuesta)});
-    //         // respuesta += chunk;
-    //         res.json(chunk);
-    //     });
-    // }).on('error', function(e) {
-    //     console.log("error: " + e.message);
-    // });
-    // // console.log("BODY: " + respuesta);
-    // // res.write(respuesta)
-    // // res.end();
-
-// res.writeHead(200, {
-//     'Content-Type': 'application/json',
-//     'Content-Length': Buffer.byteLength(write)
-// });
-
-// function random(response) {
-//   console.log("Request handler 'random was called.");
-//   response.writeHead(200, {"Content-Type": "application/json"});
-//   var otherArray = ["item1", "item2"];
-//   var otherObject = { item1: "item1val", item2: "item2val" };
-//   response.write(
-//     JSON.stringify({ 
-//       anObject: otherObject, 
-//       anArray: otherArray, 
-//       another: "item",
-//     })
-//   );
-//   response.end();
-// }
-
-
-// http://187.162.45.69:8000/services/sentimentServices/track.xsodata/TRACK/?$format=json
-// http://192.168.15.12:8000/services/servicesHANA/nombre.xsjs?nombre=Cesar&id=4
-// http.get("http://SYSTEM:manager@192.168.15.12:8000/services/servicesHANA/nombre.xsjs?nombre=Richard&id=5", function(res) {
-//   console.log("Got response: " + res.statusCode);
-
-//   res.on("data", function(chunk) {
-//     console.log("BODY: " + chunk);
-//   });
-// }).on('error', function(e) {
-//   console.log("Got error: " + e.message);
-// });
 
 function programTwit(twit, yy, mm, dd, hh, min, ss, mms) {
     console.log(' Entering programTwit' );
@@ -214,22 +168,6 @@ function programTwit(twit, yy, mm, dd, hh, min, ss, mms) {
         console.log('finish');
     }, true)
 }
-
-
-// function updateStatus(status) {
-//         twit.verifyCredentials(function (err, data) {
-//             if (err) {
-//             console.log("Error verifying credentials: " + err);
-//             process.exit(1);
-//             }
-//         })
-//         .updateStatus(status,
-//         function (err, data) {
-//             if (err) console.log('Tweeting failed: ' + err);
-//             else console.log('Success!')
-//         }
-//         )
-//     })
 
 function updateStatus(status) {
     console.log('updating status');
